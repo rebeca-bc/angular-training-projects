@@ -1,1 +1,30 @@
-<p>investment-results works!</p>
+@if (!results) {
+    <p class="center">Please enter some Values and press "Calculate"</p>
+} @else {
+
+    <table class="center">
+        <thead>
+            <tr>
+                <th>year</th>
+                <th>interest</th>
+                <th>valueEndOfYear</th>
+                <th>annualInvestment</th>
+                <th>totalInterest</th>
+                <th>totalAmountInvested</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(r of results; track r.year) { 
+                <tr>
+                    <td>{{ r.year }}</td>
+                    <td>{{ r.interest | currency:"EUR" }}</td>
+                    <td>{{ r.valueEndOfYear | currency:"EUR" }}</td>
+                    <td>{{ r.annualInvestment | currency:"EUR" }}</td>
+                    <td>{{ r.totalInterest | currency:"EUR" }}</td>
+                    <td>{{ r.totalAmountInvested | currency:"EUR" }}</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}
